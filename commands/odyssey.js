@@ -58,7 +58,7 @@ async function getOdyssey(url, difficulty) {
     }));
     const maps = mapData.map(map => ({
         name: `${map.name.replace('Odyssey Map ', '')}. ${map.map.replace(/([A-Z])/g, ' $1').trim()} (${map.difficulty}, ${map.mode})`,
-        value: `$${map.startingCash}, r${map.startRound}/${map.endRound}\n${parseModifiers(map).join(', ')}`
+        value: `$${map.startingCash.toLocaleString('en-US')}, r${map.startRound}/${map.endRound}\n${parseModifiers(map).join(', ')}`
     }))
     const difficultyIcon = difficulty === 'Easy' ? 'https://i.gyazo.com/33f0604a91d9e33fd133536064adb70d.png' : difficulty === 'Medium' ? 'https://i.gyazo.com/aaa300f1f2b8f91bee268b1ce861b21f.png' : 'https://i.gyazo.com/368de4ca95785aad1d41afe87ab1a762.png';
     return {

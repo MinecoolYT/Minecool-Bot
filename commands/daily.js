@@ -46,7 +46,21 @@ module.exports = {
                 name: dailyChallenges.timestamp,
                 icon_url: parseMode(data)
             },
-            fields: parseTowerSets(data),
+            fields: [{
+                name: "Lives",
+                value: `${data.lives}/${data.maxLives}`,
+                inline: true
+            },
+            {
+                name: "Cash",
+                value: `$${data.startingCash}`,
+                inline: true
+            },
+            {
+                name: "Round",
+                value: `${data.startRound}/${data.endRound}`,
+                inline: true
+            }, ...parseTowerSets(data)],
         }
         interaction.update({ embeds: [challengeEmbed] })
     }

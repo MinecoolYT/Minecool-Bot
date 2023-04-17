@@ -26,6 +26,7 @@ function parseModifiers(data, defaultRoundSetLength = 1) {
     if (data.removeableCostMultiplier > 1 && data.removeableCostMultiplier < 12) description.push(`<:decreasedremoval:947462619835535451> ${+data.removeableCostMultiplier * 100}% Removal Cost`);
     if (data.leastCashUsed > -1) description.push(`<:LeastCashIcon:964440130221928498> $${data.leastCashUsed} Cash Limit`);
     if (data.leastTiersUsed > -1) description.push(`<:LeastTiersIcon:964440130481963048> ${data.leastTiersUsed} Tier Limit`);
+    if (data.maxTowers > 0) description.push(`<:maxmonkeys:948162885694148608> ${data.maxTowers} Max Towers\n`);
     return description;
 };
 

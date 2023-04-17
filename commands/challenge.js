@@ -27,7 +27,21 @@ module.exports = {
                 name: data.id,
                 icon_url: parseMode(data)
             },
-            fields: parseTowerSets(data),
+            fields: [{
+                name: "Lives",
+                value: `${data.lives}/${data.maxLives}`,
+                inline: true
+            },
+            {
+                name: "Cash",
+                value: `$${data.startingCash.toLocaleString('en-US')}`,
+                inline: true
+            },
+            {
+                name: "Round",
+                value: `${data.startRound}/${data.endRound}`,
+                inline: true
+            }, ...parseTowerSets(data)],
         }
         const statsEmbed = {
             title: 'Stats',
@@ -63,7 +77,10 @@ module.exports = {
                     value: data.playsUnique - data.winsUnique,
                     inline: true
                 },
-            ]
+            ],
+            footer: {
+                text: `Made in v${data.gameVersion}`,
+            }
         }
         interaction.editReply({ embeds: [challengeEmbed, statsEmbed] })
     },

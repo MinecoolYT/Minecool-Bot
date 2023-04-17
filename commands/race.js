@@ -57,7 +57,7 @@ function getRace(data, timestamp) {
             },
             {
                 name: "Cash",
-                value: `$${data.startingCash}`,
+                value: `$${data.startingCash.toLocaleString('en-US')}`,
                 inline: true
             },
             {

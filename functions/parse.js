@@ -5,9 +5,9 @@ function parse(data) {
     if (data.map === 'TownCentre') data.map = 'TownCenter';
     data.map = data.map.replace(/([A-Z])/g, ' $1').trim();
     if (data.mode === 'Clicks') data.mode = 'Chimps';
-    if (data.startingCash === -1) {
-        data.startingCash = 650;
-        if (data.mode === 'Deflation') data.startingCash = 20000;
+    if (data.startingCash.toLocaleString('en-US') === -1) {
+        data.startingCash.toLocaleString('en-US') = 650;
+        if (data.mode === 'Deflation') data.startingCash.toLocaleString('en-US') = 20000;
     }
     if (data.lives === -1) {
         if (data.difficulty === 'Easy') data.lives = 200;
