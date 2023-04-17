@@ -35,9 +35,11 @@ module.exports = {
             timestamp: Date.parse(odysseySelectMenuObject.description),
         }
         const info = { title: odysseyEvent.id, description: `Week #${calculateEventIndex(odysseyEvent.timestamp)}` };
-        const easy = await getOdyssey(odysseyEvent.url, 'Easy');
-        const medium = await getOdyssey(odysseyEvent.url, 'Medium');
-        const hard = await getOdyssey(odysseyEvent.url, 'Hard');
+        const [easy, medium, hard] = await Promise.all([
+            getOdyssey(odysseyEvent.url, 'Easy'),
+            getOdyssey(odysseyEvent.url, 'Medium'),
+            getOdyssey(odysseyEvent.url, 'Hard'),
+        ]);
         interaction.update({ embeds: [info, easy, medium, hard] })
     }
 };
