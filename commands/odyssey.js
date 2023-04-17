@@ -45,8 +45,10 @@ module.exports = {
 };
 
 async function getOdyssey(url, difficulty) {
-    const data = (await axios.get(url + difficulty.toLowerCase())).data.body;
-    const mapData = (await axios.get(data.maps)).data.body;
+    const [data, mapData] = await Promise.all([
+        (await axios.get(url + difficulty.toLowerCase())).data.body,
+        (await axios.get(url + difficulty.toLowerCase() + '/maps')).data.body
+    ]);
     const towers = parseTowerSets(parseTowers(data)).map(tower => ({
         name: tower.name,
         value: tower.value.split(', ').join('\n'),
