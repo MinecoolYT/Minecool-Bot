@@ -19,7 +19,7 @@ module.exports = {
         const challengeEmbed = {
             title: data.name,
             url: `https://join.btd6.com/Challenge/${data.id}`,
-            description: parseModifiers(data).join('\n'),
+            description: `${data.map} - ${data.difficulty} - ${data.mode}\n\n${parseModifiers(data, defaultRoundSetLength = 2).join('\n')}`,
             thumbnail: {
                 url: parseDifficulty(data)
             },

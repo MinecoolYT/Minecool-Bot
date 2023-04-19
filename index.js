@@ -36,6 +36,7 @@ client.on(Events.InteractionCreate, async interaction => {
 
 client.on(Events.InteractionCreate, async interaction => {
     if (!interaction.isStringSelectMenu()) return;
+
     const command = client.commands.get(interaction.message.interaction.commandName);
     try {
         await command.selectMenu(interaction);

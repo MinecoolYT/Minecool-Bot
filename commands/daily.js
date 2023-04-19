@@ -38,7 +38,7 @@ module.exports = {
         const data = parse(response.data.body);
         const challengeEmbed = {
             title: data.name,
-            description: parseModifiers(data).join('\n'),
+            description: `${data.map} - ${data.difficulty} - ${data.mode}\n${parseModifiers(data).join('\n')}`,
             thumbnail: {
                 url: parseDifficulty(data)
             },
@@ -48,17 +48,18 @@ module.exports = {
             },
             fields: [{
                 name: "Lives",
-                value: `${data.lives}/${data.maxLives}`,
+                value: `${data.lives
+                    } / ${data.maxLives} `,
                 inline: true
             },
             {
                 name: "Cash",
-                value: `$${data.startingCash}`,
+                value: `$${data.startingCash} `,
                 inline: true
             },
             {
                 name: "Round",
-                value: `${data.startRound}/${data.endRound}`,
+                value: `${data.startRound} /${data.endRound}`,
                 inline: true
             }, ...parseTowerSets(data)],
         }

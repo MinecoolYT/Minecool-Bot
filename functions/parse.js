@@ -16,6 +16,7 @@ function parse(data) {
         if (data.mode === 'Impoppable' || data.mode === 'Chimps') data.lives = 1;
     }
     if (data.maxLives === -1) data.maxLives = 5000;
+    if (data.lives > data.maxLives) data.lives = data.maxLives;
     if (data.startRound === -1) {
         data.startRound = 1;
         if (data.difficulty === 'Hard') data.startRound = 3;

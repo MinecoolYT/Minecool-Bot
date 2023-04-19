@@ -38,7 +38,7 @@ module.exports = {
 function getBoss(data, type) {
     return {
         title: (type === 'normal' ? 'Normal ' : 'Elite ') + data.name.replace(/(\D+)(\d+)/, '$1 #$2'),
-        description: parseModifiers(data, defaultRoundSetLength = 2).join('\n'),
+        description: `${data.map} - ${data.difficulty} - ${data.mode}\n\n${parseModifiers(data, defaultRoundSetLength = 2).join('\n')}`,
         thumbnail: {
             url: type === 'normal' ? getBossThumbnail(data) : getEliteBossThumbnail(data)
         },

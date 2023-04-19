@@ -45,7 +45,7 @@ function getRace(data, timestamp) {
             name: `Race #${calculateEventIndex(timestamp)}`
         },
         title: data.name,
-        description: parseModifiers(data).join('\n'),
+        description: `${data.map} - ${data.difficulty} - ${data.mode}\n\n${parseModifiers(data, defaultRoundSetLength = 2).join('\n')}`,
         thumbnail: {
             url: "https://cdn.discordapp.com/emojis/880692063681781790.webp?size=1024&quality=lossless"
         },
