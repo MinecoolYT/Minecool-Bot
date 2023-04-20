@@ -48,13 +48,12 @@ module.exports = {
             },
             fields: [{
                 name: "Lives",
-                value: `${data.lives
-                    } / ${data.maxLives} `,
+                value: `${data.lives} / ${data.maxLives}`,
                 inline: true
             },
             {
                 name: "Cash",
-                value: `$${data.startingCash} `,
+                value: `$${data.startingCash}`,
                 inline: true
             },
             {

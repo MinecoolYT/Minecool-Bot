@@ -52,7 +52,7 @@ function parseTowers(data) {
         .filter(tower => tower.isHero === false && tower.max !== 0)
         .map(tower => {
             return {
-                tower: tower.tower.replace(/([A-Z])/g, ' $1').replace('Monkey', '').replace('Tower', '').replace('Shooter', '').replace('Gunner', '').replace('Pilot', '').replace('Banana', '').replace('Bucaneer', 'Boat').trim(),
+                tower: tower.tower.replace(/([A-Z])/g, ' $1').replace('Monkey', '').replace('Tower', '').replace('Shooter', '').replace('Gunner', '').replace('Pilot', '').replace('Banana', '').replace('Buccaneer', 'Boat').trim(),
                 max: tower.max,
                 path1: tower.path1NumBlockedTiers === -1 ? 0 : 5 - tower.path1NumBlockedTiers,
                 path2: tower.path2NumBlockedTiers === -1 ? 0 : 5 - tower.path2NumBlockedTiers,

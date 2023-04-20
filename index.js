@@ -36,7 +36,7 @@ client.on(Events.InteractionCreate, async interaction => {
 
 client.on(Events.InteractionCreate, async interaction => {
     if (!interaction.isStringSelectMenu()) return;
-
+    if (interaction.message.interaction.user.id !== interaction.user.id) return interaction.reply({ content: 'You cannot use this select menu as you did not create this interaction.', ephemeral: true });
     const command = client.commands.get(interaction.message.interaction.commandName);
     try {
         await command.selectMenu(interaction);

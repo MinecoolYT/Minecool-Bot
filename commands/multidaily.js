@@ -16,12 +16,12 @@ module.exports = {
             description: "Sorry for the wall of embeds. Challenge Editor is having issues where you cannot search for challenges by name."
         }
         const challenges = await getChallenges(challengeIds.split(';'))
-        interaction.channel.messages.fetch("1098002505465610350").then(message => {
-            message.edit({
-                embeds: [...challenges, sorry]
-            });
-        })
-        // interaction.channel.send({ embeds: [...await getChallenges(challengeIds.split(';')), sorry] })
+        // interaction.channel.messages.fetch("1098002505465610350").then(message => {
+        //     message.edit({
+        //         embeds: [...challenges, sorry]
+        //     });
+        // })
+        interaction.channel.send({ embeds: [...challenges, sorry] })
     }
 };
 
